@@ -1,0 +1,36 @@
+{
+  "name": "@ztwx/cm-template",
+  "version": "0.0.1-beta.0.1",
+  "description": "cm tempalte management tool",
+  "main": "./lib/index.js",
+  "scripts": {
+    "compiler": "tsc --project tsconfig.json",
+    "watch": "tsc --project tsconfig.json -w"
+  },
+  "bin": {
+    "cmtp": "./lib/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ztwx/cm-zip": "file:../../cm-zip",
+    "chalk": "^2.4.2",
+    "commander": "^3.0.2",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.8",
+    "typescript": "^3.6.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhantewei2/cm-template.git"
+  },
+  "keywords": [
+    "template",
+    "cm",
+    "ztw",
+    "@ztwx",
+    "zhantewei"
+  ]
+}

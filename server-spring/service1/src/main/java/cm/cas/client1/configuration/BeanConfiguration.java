@@ -1,5 +1,6 @@
 package cm.cas.client1.configuration;
 
+import cm.cas.client1.configuration.mongodb.MongodConnection;
 import lombok.extern.slf4j.Slf4j;
 import org.cm.pro.Thread.ZTWThreadFixed;
 import org.cm.pro.utils.ZTWAES;
@@ -40,5 +41,21 @@ public class BeanConfiguration {
     @Bean(value="reqThreadPool")
     public ZTWThreadFixed reqThreadPool(){
         return new ZTWThreadFixed(setting.getReqThreadPoolCount());
+    }
+
+    /***
+     * author: zhantewei
+     * mongo connect
+     * creation time:2019-09-30
+     ****/
+    @Bean(value="cmMongo")
+    public MongodConnection mongodConnection(){
+        return new MongodConnection(
+                setting.getMongodbHost(),
+                setting.getMongodbDatabase(),
+                setting.getMongodbPort(),
+                setting.getMongodbAccount(),
+                setting.getMongodbPwd()
+        );
     }
 }

@@ -7,14 +7,20 @@ import com.mongodb.client.MongoDatabase;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.Document;
 
+import javax.print.Doc;
 import java.util.*;
 
 @Slf4j
 public class MongodConnection {
     private MongoClient client;
     private MongoDatabase cmDb;
+    //用户
     public MongoCollection<Document> user;
+    //仓库
     public MongoCollection<Document> reps;
+    //静态列表
+    public MongoCollection<Document> lists;
+
     private List<String> collectionNames;
 
     public MongodConnection(
@@ -24,22 +30,18 @@ public class MongodConnection {
             String mongodbUser,
             String mongodbPwd
     ){
-        System.out.println("host:"+mongodbHost);
-        System.out.println("database:"+mongodbDatabase);
-        System.out.println("mongodbPort:"+mongodbPort);
-        System.out.println("mongodbUser:"+mongodbUser);
-        System.out.println("mongodbPwd:"+mongodbPwd);
         char[] pwdchars=new char[mongodbPwd.length()];
-//        mongodbPwd.getChars(0,mongodbPwd.length(),pwdchars,0);
-//        MongoCredential credential=MongoCredential.createCredential(mongodbUser,mongodbDatabase,pwdchars);
-//        ServerAddress serverAddress=new ServerAddress(mongodbHost,mongodbPort);
-//        MongoClientOptions options= MongoClientOptions.builder().build();
-//        client=new MongoClient(serverAddress,credential,options);
-//        cmDb=client.getDatabase(mongodbDatabase);
-//
-//        createCollection("user");
-//        reps=createCollection("reps");
-
+        //create client
+        mongodbPwd.getChars(0,mongodbPwd.length(),pwdchars,0);
+        MongoCredential credential=MongoCredential.createCredential(mongodbUser,mongodbDatabase,pwdchars);
+        ServerAddress serverAddress=new ServerAddress(mongodbHost,mongodbPort);
+        MongoClientOptions options= MongoClientOptions.builder().build();
+        client=new MongoClient(serverAddress,credential,options);
+        cmDb=client.getDatabase(mongodbDatabase);
+        //create collections
+        user=createCollection("user");
+        reps=createCollection("reps");
+        lists=createCollection("lists");
     }
     private MongoCollection<Document> createCollection(String collectionName){
         if(collectionNames==null)collectionNames=cmDb.listCollectionNames().into(new ArrayList<>());

@@ -12,23 +12,24 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.cm.pro</groupId>
+            <groupId>org.ztw.server</groupId>
             <artifactId>cas-common</artifactId>
             <version>1.0</version>
         </dependency>
+
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongo-java-driver</artifactId>
             <version>3.11.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.ztw.server</groupId>
+            <artifactId>cm-common-mongodb</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
     <build>
-        <filters>
-            <filter>
-                filters/filter-dev.properties
-            </filter>
-        </filters>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

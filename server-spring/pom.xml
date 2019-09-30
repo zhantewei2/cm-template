@@ -11,8 +11,8 @@
     <modules>
         <module>service1</module>
         <module>cas-common</module>
+        <module>cm-common</module>
     </modules>
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -21,6 +21,7 @@
     </parent>
 
     <properties>
+        <host.dir>/myTest/cmTool/cm-template/server-spring</host.dir>
         <java.version>1.8</java.version>
         <cas.version>5.3.12</cas.version>
         <spring-dependencies.version>Greenwich.SR1</spring-dependencies.version>
@@ -115,7 +116,7 @@
     <build>
         <filters>
             <filter>
-                ../filters/filter-${package.env}.properties
+                ${host.dir}/filters/filter-${package.env}.properties
             </filter>
         </filters>
 

@@ -10,7 +10,6 @@
     <version>1.0</version>
     <modules>
         <module>service1</module>
-        <module>cas-common</module>
         <module>cm-common</module>
     </modules>
     <parent>

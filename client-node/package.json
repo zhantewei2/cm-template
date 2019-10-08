@@ -8,7 +8,7 @@
     "watch": "tsc --project tsconfig.json -w"
   },
   "bin": {
-    "cmtp": "./lib/index.js"
+    "cmtp": "./lib/tmpIndex.js"
   },
   "author": "",
   "license": "ISC",

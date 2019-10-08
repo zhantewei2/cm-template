@@ -10,9 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <version>1.0</version>
+    <artifactId>cm-common</artifactId>
+
     <modules>
+        <module>cm-utils</module>
         <module>cm-common-mongodb</module>
     </modules>
-    <artifactId>cm-common</artifactId>
+
 
 </project>
